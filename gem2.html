@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pona EKolo - Chatbot Gem</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@32,400,0,0"
+    />
+  </head>
+  <body>
+    <!-- Loading Screen -->
+    <div class="loading-screen">
+      <div class="loading-logo">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z"
+            stroke="#1d7efd"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+          <path
+            d="M12 8V12L15 15"
+            stroke="#1d7efd"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+      </div>
+      <div class="loading-spinner"></div>
+      <div class="loading-text">Chargement de l'application...</div>
+      <div class="loading-footer">Créé par Pona Ekolo</div>
+    </div>
+
+    <!-- Settings Modal -->
+    <div class="settings-modal">
+      <div class="settings-content glass-effect">
+        <div class="settings-header">
+          <h3 class="settings-title">Paramètres</h3>
+          <button class="close-settings material-symbols-rounded">close</button>
+        </div>
+        <form id="settings-form">
+          <div class="settings-form-group">
+            <label for="api-key" class="settings-label">Clé API Gemini</label>
+            <input
+              type="password"
+              id="api-key"
+              class="settings-input"
+              placeholder="Entrez votre clé API"
+            />
+          </div>
+          <button type="submit" class="settings-save-btn">Enregistrer</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Main App Container -->
+    <div class="container">
+      <!-- App Header -->
+      <header class="app-header">
+        <h1 class="heading">Bonjour</h1>
+        <h4 class="sub-heading">Comment puis-je vous aider aujourd'hui ?</h4>
+      </header>
+
+      <!-- Suggestions List -->
+      <ul class="suggestions">
+        <li class="suggestions-item">
+          <p class="text">
+            Concevoir un bureau à domicile pour le télétravail à moins de 500 €.
+          </p>
+          <span class="icon material-symbols-rounded">draw</span>
+        </li>
+        <li class="suggestions-item">
+          <p class="text">
+            Comment améliorer mes compétences en développement web en 2025 ?
+          </p>
+          <span class="icon material-symbols-rounded">lightbulb</span>
+        </li>
+        <li class="suggestions-item">
+          <p class="text">
+            Proposez des outils utiles pour déboguer du code JavaScript.
+          </p>
+          <span class="icon material-symbols-rounded">explore</span>
+        </li>
+        <li class="suggestions-item">
+          <p class="text">
+            Créez un composant React JS pour une application simple de liste de
+            tâches.
+          </p>
+          <span class="icon material-symbols-rounded">code_blocks</span>
+        </li>
+      </ul>
+
+      <!-- Chats -->
+      <div class="chats-container"></div>
+
+      <!-- Prompt Input -->
+      <div class="prompt-container glass-effect">
+        <div class="prompt-wrapper">
+          <form action="#" class="prompt-form">
+            <input
+              type="text"
+              placeholder="Demandez à GemiFlex"
+              class="prompt-input"
+              required
+            />
+            <div class="prompt-actions">
+              <!-- File Upload Wrapper -->
+              <div class="file-upload-wrapper">
+                <img src="#" class="file-preview" />
+                <input
+                  id="file-input"
+                  type="file"
+                  accept="image/*, .pdf, .txt, .csv"
+                  hidden
+                />
+                <button
+                  type="button"
+                  class="file-icon material-symbols-rounded"
+                >
+                  description
+                </button>
+                <button
+                  id="cancel-file-btn"
+                  type="button"
+                  class="material-symbols-rounded"
+                >
+                  close
+                </button>
+                <button
+                  id="add-file-btn"
+                  type="button"
+                  class="material-symbols-rounded"
+                >
+                  attach_file
+                </button>
+              </div>
+              <!-- Send Prompt and Stop Response Buttons -->
+              <button
+                id="stop-response-btn"
+                type="button"
+                class="material-symbols-rounded"
+              >
+                stop_circle
+              </button>
+              <button id="send-prompt-btn" class="material-symbols-rounded">
+                arrow_upward
+              </button>
+            </div>
+          </form>
+          <!-- Theme and Delete Chats Buttons -->
+          <button id="settings-btn" class="material-symbols-rounded">
+            settings
+          </button>
+          <button id="theme-toggle-btn" class="material-symbols-rounded">
+            light_mode
+          </button>
+          <button id="delete-chats-btn" class="material-symbols-rounded">
+            delete
+          </button>
+        </div>
+        <p class="disclaimer-text">
+          AI peut faire des erreurs, alors vérifiez les informations.
+        </p>
+      </div>
+    </div>
+
+    <script src="scripts.js"></script>
+  </body>
+</html>
